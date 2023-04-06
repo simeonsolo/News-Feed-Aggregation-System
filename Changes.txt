@@ -1,0 +1,23 @@
+Feedback I received following first submission:
+- Code did not run fluently following README instructions
+- Requests are not ordered
+- Aggregation server is not persistent
+- Restore on failure is not implemented
+- Lamport clocks are not functionable (basic structure is there but not implemented)
+- Heartbeat functionality inefficient
+- Retry on failure not implemented
+- Testing not started
+- XML parsing is not implemented
+
+What changes I made:
+-> Adjusted the README instructions and made sure all necessary files were included in the repository
+-> Implemented a request scheduler with a priority queue implementation that sorts requests by there arrival time (using an appropriate implementation of lamport clocks)
+-> Implemented a class "RestoreContent" that accesses the static file atom.txt on startup, uploads content immediately back into the server (following restart/crash)
+-> A 60 second reconnection window has been implemented on restart which gives content servers the ability to reconnect to their entries before they are pronounced dead and hence deleted
+-> Altered the heartbeat functionality to where the content server sends the heartbeats every 12sec & the aggregation server checks periodically
+-> Retry on faiure is implemented for both client servers & content servers
+-> Content servers now attempt automatic reconnection following a disconnection to AS due to an AS crash/restart
+-> Automated testing has been implemented in bash. A wide range of test cases are considered and are presented with clarity
+
+Changes I didn't make:
+-> XML parsing
