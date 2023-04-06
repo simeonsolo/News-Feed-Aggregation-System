@@ -1,7 +1,8 @@
 # News-Feed-Aggregation-System
 
 **FUNCTIONALITY CHECKLIST**
-	BASIC FUNCTIONALITY
+
+	BASIC FUNCTIONALITY	
 		- DONE: Text sending works - please send text strings instead of fully formatted XML (see below for bonus)
 		- DONE: client, Atom server and content server processes start up and communicate
 		- DONE: PUT operation works for one content server
@@ -16,6 +17,7 @@
 		- INCOMPLETE: XML Parsing
 
 **INFORMATION ON IMPLEMENTATION**
+
 	-> Aggregation Server
 		- Lamport Clock: A lamport clock is initialised on the AS in the beginning of the program. The servers clock is incremented following any significant event.
 		- Restoring Content: Upon restart, the server will restore the content contained in local file "Atom.txt". The server will allow a one minute window for content servers to reconnect and claim connection to their respective entries. If the respective contents connection is not restored within 60 seconds, it will be removed and the aggregate feed will be updated accordingly.
@@ -32,6 +34,7 @@
 
 
 **INSTRUCTIONS FOR RUNNING**
+
 	javac *.java
 	java AggregationServer
 	java ContentServer localhost:4567 fileName
@@ -39,6 +42,7 @@
 	-> input.txt & input1.txt are available examples of input atom feeds that are used for this system
 
 ***TESTING***
+
 	- Automated testing for this distributed system is completed in bash
 	- Instructions for running:
 		-> chmod +x testCases.sh testComparison.sh testComparisonCS.sh
@@ -48,4 +52,5 @@
 	- Expected outputs are accessible in EO1-14.txt and are referenced before each test to allow for easy viewership if required.
 
 **CHANGES FOLLOWING REVISION 1 FEEDBACK**
+
 	- see Changes.txt
